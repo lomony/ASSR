@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+</head>
+<body>
+    <h2>Enter Your Email to Access the Form</h2>
+    <input type="email" id="emailInput" placeholder="Enter your email">
+    <button onclick="checkEmail()">Verify</button>
+    <p id="message"></p>
+
+    <div id="formContainer" style="display: none; margin-top: 20px;">
+        <iframe id="koboForm" src="" width="800" height="600"></iframe>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
