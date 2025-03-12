@@ -3,54 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Verification</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 50px;
-        }
-        input, button {
-            padding: 10px;
-            margin: 5px;
-        }
-        #formContainer {
-            display: none;
-            margin-top: 20px;
-        }
-    </style>
+    <title>Email Check</title>
 </head>
 <body>
-    <h2>Enter Your Email to Access the Form</h2>
-    <input type="email" id="emailInput" placeholder="Enter your email">
-    <button onclick="checkEmail()">Verify</button>
-    <p id="message"></p>
-    <div id="formContainer">
-        <iframe src="https://ee.kobotoolbox.org/i/Y0BfeHo9" width="800" height="600"></iframe>
-    </div>
-    
-    <script>
-        function checkEmail() {
-            let allowedEmails = [
-                "ayu.vilaily@asean.org",
-                "jeerana.noymanee@asean.org",
-                "ung.srengkong@asean.org",
-                "gary.lim@asean.org",
-                "rina@asean.org",
-                "martin.pradipto@asean.org"
-            ];
-            let emailInput = document.getElementById("emailInput").value.trim().toLowerCase();
-            let messageBox = document.getElementById("message");
-            let formContainer = document.getElementById("formContainer");
+    <h1>Please Enter Your Email</h1>
+    <form id="emailForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Submit</button>
+    </form>
 
-            if (allowedEmails.includes(emailInput)) {
-                messageBox.innerHTML = "✅ Access Granted!";
-                formContainer.style.display = "block";
+    <script>
+        // List of valid emails
+        const validEmails = [
+            "ayu.vilaily@asean.org",
+            "jeerana.noymanee@asean.org",
+            "ung.srengkong@asean.org",
+            "gary.lim@asean.org",
+            "rina@asean.org",
+            "martin.pradipto@asean.org"
+        ];
+
+        // Form submission handler
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            // Get the entered email
+            const enteredEmail = document.getElementById('email').value;
+
+            // Check if the email is in the list
+            if (validEmails.includes(enteredEmail)) {
+                // Redirect to the page with the iframe
+                window.location.href = "iframe-page.html"; // Redirect to the iframe page
             } else {
-                messageBox.innerHTML = "❌ Email not authorized.";
-                formContainer.style.display = "none";
+                alert("Email not found. Please try again.");
             }
-        }
+        });
     </script>
 </body>
 </html>
